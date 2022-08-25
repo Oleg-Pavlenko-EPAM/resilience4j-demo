@@ -1,0 +1,75 @@
+management:
+  endpoints:
+    enabled-by-default: true
+    web.exposure.include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+    ratelimiters:
+      enabled: true
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 10
+    configB:
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 10
+      failureRateThreshold: 90
+      waitDurationInOpenState: 60s
+      permittedNumberOfCallsInHalfOpenState: 3
+    configC:
+      slidingWindowType: TIME_BASED
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 30s
+      permittedNumberOfCallsInHalfOpenState: 3
+  instances:
+    backendA:
+      baseConfig: default
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 10
+      failureRateThreshold: 50
+      waitDurationInOpenState: 30s
+      permittedNumberOfCallsInHalfOpenState: 3
+    backendC:
+      baseConfig: configC
+    backendC1:
+      baseConfig: configC
+      ignoreExceptions: java.lang.NumberFormatException
+
+resilience4j.bulkhead:
+  instances:
+    backendA:
+      maxConcurrentCalls: 3
+      maxWaitDuration: 5s
+
+resilience4j.ratelimiter:
+  instances:
+    backendA:
+      limitForPeriod: 3
+      limitRefreshPeriod: 20s
+      timeoutDuration: 5s
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 10
+
+resilience4j.timelimiter:
+  instances:
+    backendA:
+      timeoutDuration: 5s
+      cancelRunningFuture: false
+
+resilience4j.retry:
+  instances:
+    backendA:
+      maxAttempts: 3
+      waitDuration: 3s
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      enableRandomizedWait: true
+      randomizedWaitFactor: 0.1

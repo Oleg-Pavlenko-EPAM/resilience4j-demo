@@ -1,0 +1,482 @@
+{
+	"info": {
+		"_postman_id": "f2816390-fc28-477c-890f-77d700365086",
+		"name": "Resilience4j Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Circuit Breaker",
+			"item": [
+				{
+					"name": "Test Circuit Breaker",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Circuit Breaker Dynamic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker-dynamic/backendB-2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker-dynamic",
+								"backendB-2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Circuit Breaker With Fallback",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker-with-fallback/input",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker-with-fallback",
+								"input"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Circuit Breaker Time Based",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker-time-based-window",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker-time-based-window"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Circuit Breaker Ignorable Exception",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker-ignorable-exception/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker-ignorable-exception",
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Circuit Breaker Webflux",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker-webflux",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker-webflux"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Cirucit Breaker Failure Rate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "100"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/circuit-breaker/failure-rate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"circuit-breaker",
+								"failure-rate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bulkhead",
+			"item": [
+				{
+					"name": "Test Bulkhead 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/bulkhead",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"bulkhead"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Bulkhead 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/bulkhead",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"bulkhead"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Bulkhead 3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/bulkhead",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"bulkhead"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Bulkhead 4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/bulkhead",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"bulkhead"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Bulkhead Wait Duration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "20000"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/bulkhead/wait-duration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"bulkhead",
+								"wait-duration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rate Limiter",
+			"item": [
+				{
+					"name": "Test Rate Limiter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/rate-limiter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"rate-limiter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Time Limiter",
+			"item": [
+				{
+					"name": "Test Time Limiter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/time-limiter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"time-limiter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Time Limiter Wait Duration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "1000"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/time-limiter/wait-duration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"time-limiter",
+								"wait-duration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Retry",
+			"item": [
+				{
+					"name": "Test Retry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/retry",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"retry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Retry Failure Rate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "100"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/retry/failure-rate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"retry",
+								"failure-rate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actuator",
+			"item": [
+				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breaker Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/circuitbreakerevents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"circuitbreakerevents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available Endpoints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.failure.rate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.failure.rate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
